@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {TableModule} from 'primeng/table';
+import { ApiDataService } from './api-data.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -10,9 +13,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TableModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
