@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Table } from 'primeng/table';
 import { ApiDataService } from './api-data.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { ApiDataService } from './api-data.service';
 export class AppComponent {
   cols:any=[];
   products=[]
+  @ViewChild('dt')
+  dt!: Table;
   constructor(private service:ApiDataService){}
 
   ngOnInit(){
@@ -27,5 +30,9 @@ export class AppComponent {
         this.cols.push(arr2)
       }      
     })
+  }
+
+  filterGlobal($event: Event, stringVal: any) {
+    this.dt.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
   }
 }
