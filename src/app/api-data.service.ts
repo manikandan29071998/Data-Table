@@ -14,9 +14,9 @@ export class ApiDataService {
       map((result: any) => {
         result.data = result.data.map((res: any) => {
           let data = {
-            id: res.id,
+            "id": res.id,
             'user id': res.username,
-            name: res.name,
+            "name": res.name,
             // "website": res.website,
             'email id': res.email,
             'phone number': res.phone,
@@ -24,7 +24,6 @@ export class ApiDataService {
           return data;
         });
 
-        
         /*
         //column position change
           type customObj = Record<string, any> | null;
@@ -36,32 +35,27 @@ export class ApiDataService {
               });
           })
 
-          const customorder: any = ["username","id","name","website","email","phone"];
-          const ordered: customObj = order(result.data, customorder);
-          return ordered;
-        */
+          const custom_api_order: any = ["username","id","name","website","email","phone"];
+          const modify_api: customObj[] = order(result.data, custom_api_order);
 
 
-        /*
-        //rename key
-          result.data.map((res:any,i:any)=>{
-            const { username, ...rest } = result.data[i];
-          result.data[i] = {
+          //rename key
+          modify_api.map((res:any,i:any)=>{
+            const { username, ...rest }:any = modify_api[i];
+          modify_api[i] = {
             "user id": username,
             ...rest
           };
           })
-        */
 
-
-        /*
-        //delete property
-          result.data.map((res:any)=>{
-            delete res.id;
-            return res
+          //delete property
+          modify_api.map((res:any)=>{
+            delete res.website;
           })
-        */
 
+          return modify_api;
+          */
+        
         return result.data;
       })
     );
