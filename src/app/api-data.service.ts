@@ -3,6 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+/*
+export interface datatype{
+  id:string;
+  username:string;
+  name:string;
+  website:string;
+  email:string;
+  phone:string;
+}
+*/
 @Injectable({
   providedIn: 'root',
 })
