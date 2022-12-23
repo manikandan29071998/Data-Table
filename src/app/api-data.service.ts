@@ -20,7 +20,9 @@ export class ApiDataService {
   constructor(private http: HttpClient) {}
 
   getapidata(): Observable<any> {
-    return this.http.get<any>('./assets/fakeApi.json').pipe(
+    return this.http.get<any>('./assets/fakeApi.json')
+    /*
+    .pipe(
       map((result: any) => {
         result.data = result.data.map((res: any) => {
           let data = {
@@ -33,6 +35,7 @@ export class ApiDataService {
           };
           return data;
         });
+      */
 
         /*
         //column position change
@@ -66,8 +69,8 @@ export class ApiDataService {
           return modify_api;
           */
         
-        return result.data;
+      /*  return result.data;
       })
-    );
+    );*/
   }
 }
